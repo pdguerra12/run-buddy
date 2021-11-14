@@ -15,6 +15,16 @@ header {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    /* position webkit sticky is specific to the Safari browser so the header stays at the top of the page */
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-image: url("../images/hero-bg.jpg");
+    background-size: cover;
+    background-position: center;
+     /* By adding the background attachment property, you allow the image to stay relative to the viewpoint instead of the element */
+    background-attachment: fixed;
+    background-position: 80%;
 }
 
 header h1 {
@@ -22,6 +32,7 @@ header h1 {
     font-size: 36px;
     color: #fce138;
     margin: 0;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 header a {
@@ -45,6 +56,14 @@ header nav ul li a {
     padding: 10px 15px;
     font-weight: lighter;
     font-size: 1.55vw;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+/* pseudo class to allow the following to happen when hovered over */
+header nav ul li a:hover {
+  background: #fce138;
+  color: #024e76;
+  border-radius: 15px;
+  text-shadow: none;
 }
 
 footer {
@@ -83,6 +102,9 @@ section {
     justify-content: center;
     flex-wrap: wrap;
     align-items: flex-start;
+    /* By adding the background attachment property, you allow the image to stay relative to the viewpoint instead of the element */
+    background-attachment: fixed;
+    background-position: 80%;
 }
 
 .hero-cta {
@@ -98,6 +120,7 @@ section {
   font-style: italic;
   font-size: 55px;
   color: #fce138;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .hero-form {
@@ -106,6 +129,8 @@ section {
     border: solid 3px #024e76;
     width: 40%;
     margin: 3.5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
 }
 /* Hero Style End */
 .hero-form h3 {
@@ -125,6 +150,14 @@ section {
     color: #024e76;
     width: 95%;
     margin-bottom: 15px;
+    border-radius: 10px;
+    /* below, we're adding a transparency to the form */
+    background-color: rgba(255,255,255, 0.75);
+}
+/* pseudo class to visually highlight the form input field that the user is currently typing in */
+.form-input:focus {
+  background-color: rgba(255,255,255, 1);
+  outline: none;
 }
 
 .hero-form label {
@@ -136,6 +169,11 @@ section {
     color: #fce138;
     font-size: 16px;
     padding: 10px 20px;
+    border-radius: 10px;
+}
+/* pseudo class to allow the following to happen when hovered over */
+.hero-form button:hover {
+  background-color: #39a6b2;  
 }
 /* "What we do" styling */
 .intro p {
@@ -155,11 +193,18 @@ section {
   margin: 50px auto;
   padding-bottom: 50px;
   width: 80%;
-  border-bottom: 1px solid #39a6b2;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+}
+/* The .step:last-child selector means that the CSS declarations will only apply to an element with class step that's also the last element in whatever container it's in */
+/* .step:last-child {
+  border-bottom: 1px solid #39a6b2;
+} */
+/* The below pseudo class is saying it will add a border to every child MINUS the last one */
+.step:not(:last-child) {
+  border-bottom: 1px solid #39a6b2;
 }
   
 .step h3 {
@@ -299,6 +344,15 @@ section {
   width: 100%;
   margin-bottom: 15px;
   margin-top: 5px;
+  border-radius: 10px;
+  /* below, we're adding a transparency to the form */
+  background-color: rgba(255,255,255, 0.75);
+}
+
+/* pseudo class to visually highlight the form input field that the user is currently typing in */
+.contact-info input:focus, .contact-form textarea:focus {
+  background-color: rgba(255,255,255, 1);
+  outline: none;
 }
 
 .contact-form button {
@@ -309,6 +363,12 @@ section {
   text-align: center;
   padding: 15px 0;
   font-size: 16px;
+  border-radius: 10px;
+}
+/* pseudo classes to allow the following to happen when hovered over */
+.contact-form button:hover {
+  color: #fce138;
+  background: #39a6b2;
 }
 
 .contact-info a {
@@ -336,6 +396,8 @@ section {
   header {
     padding-bottom: 0;
     justify-content: center;
+    /* adding the position: relative element it reverts the sticky header back to what it was before */
+    position: relative;
   }
 
   header h1 {
